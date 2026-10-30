@@ -1,0 +1,85 @@
+
+-- ==========================================
+-- MYSQL BASICS AND CRUD OPERATIONS
+-- Database: anudip
+-- ==========================================
+
+
+-- 1. CHECK MYSQL VERSION
+mysql --version
+
+-- 2. LOGIN TO MYSQL
+mysql -u root -p
+
+
+-- 3. DISPLAY ALL DATABASES
+SHOW DATABASES;
+
+
+-- 4. CREATE A DATABASE
+CREATE DATABASE anudip;
+
+
+-- 5. SELECT THE DATABASE
+USE anudip;
+
+
+-- 6. DISPLAY ALL TABLES
+SHOW TABLES;
+
+
+-- 7. CREATE A STUDENT TABLE
+CREATE TABLE student (
+    student_id INT,
+    student_name VARCHAR(25),
+    age INT,
+    grade VARCHAR(5)
+);
+
+
+-- 8. INSERT RECORDS INTO THE TABLE
+INSERT INTO student (student_id, student_name, age, grade)
+VALUES
+(1, 'Yashika', 22, 'A'),
+(2, 'Sherin', 23, 'O'),
+(3, 'Varshini', 20, 'B'),
+(4, 'Monish', 18, 'O');
+
+
+-- 9. DISPLAY ALL RECORDS
+SELECT * FROM student;
+
+
+-- 10. DISPLAY A PARTICULAR COLUMN
+SELECT student_name FROM student;
+
+
+-- 11. DISPLAY RECORDS USING WHERE CONDITION
+SELECT * FROM student
+WHERE student_id = 2;
+
+
+-- 12. DISPLAY A PARTICULAR COLUMN WITH CONDITION
+SELECT student_name FROM student
+WHERE student_id = 2;
+
+
+-- 13. UPDATE STUDENT AGE
+UPDATE student
+SET age = 15
+WHERE student_id = 3;
+
+
+-- 14. UPDATE STUDENT NAME
+UPDATE student
+SET student_name = 'Sherinji'
+WHERE student_id = 2;
+
+
+-- 15. DISPLAY UPDATED RECORDS
+SELECT * FROM student;
+
+
+-- ==========================================
+-- END OF MYSQL BASIC NOTES
+-- ==========================================
