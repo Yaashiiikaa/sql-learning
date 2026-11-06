@@ -1,34 +1,29 @@
 
--- ==========================================
--- MYSQL BASICS AND CRUD OPERATIONS
--- Database: anudip
--- ==========================================
+ ==========================================
+ MYSQL BASICS AND CRUD OPERATIONS
+ Database: anudip
+ ==========================================
 
 
--- 1. CHECK MYSQL VERSION
+1. CHECK MYSQL VERSION
 mysql --version
 
--- 2. LOGIN TO MYSQL
+2. LOGIN TO MYSQL
 mysql -u root -p
 
-
--- 3. DISPLAY ALL DATABASES
+3. DISPLAY ALL DATABASES
 SHOW DATABASES;
 
-
--- 4. CREATE A DATABASE
+ 4. CREATE A DATABASE
 CREATE DATABASE anudip;
 
-
--- 5. SELECT THE DATABASE
+5. SELECT THE DATABASE
 USE anudip;
 
-
--- 6. DISPLAY ALL TABLES
+6. DISPLAY ALL TABLES
 SHOW TABLES;
 
-
--- 7. CREATE A STUDENT TABLE
+ 7. CREATE A STUDENT TABLE
 CREATE TABLE student (
     student_id INT,
     student_name VARCHAR(25),
@@ -36,8 +31,7 @@ CREATE TABLE student (
     grade VARCHAR(5)
 );
 
-
--- 8. INSERT RECORDS INTO THE TABLE
+8. INSERT RECORDS INTO THE TABLE
 INSERT INTO student (student_id, student_name, age, grade)
 VALUES
 (1, 'Yashika', 22, 'A'),
@@ -45,41 +39,35 @@ VALUES
 (3, 'Varshini', 20, 'B'),
 (4, 'Monish', 18, 'O');
 
-
--- 9. DISPLAY ALL RECORDS
+9. DISPLAY ALL RECORDS
 SELECT * FROM student;
 
-
--- 10. DISPLAY A PARTICULAR COLUMN
+10. DISPLAY A PARTICULAR COLUMN
 SELECT student_name FROM student;
 
-
--- 11. DISPLAY RECORDS USING WHERE CONDITION
+11. DISPLAY RECORDS USING WHERE CONDITION
 SELECT * FROM student
 WHERE student_id = 2;
 
-
--- 12. DISPLAY A PARTICULAR COLUMN WITH CONDITION
+ 12. DISPLAY A PARTICULAR COLUMN WITH CONDITION
 SELECT student_name FROM student
 WHERE student_id = 2;
 
-
--- 13. UPDATE STUDENT AGE
+13. UPDATE STUDENT AGE
 UPDATE student
 SET age = 15
 WHERE student_id = 3;
 
-
--- 14. UPDATE STUDENT NAME
+14. UPDATE STUDENT NAME
 UPDATE student
 SET student_name = 'Sherinji'
 WHERE student_id = 2;
 
-
--- 15. DISPLAY UPDATED RECORDS
+ 15. DISPLAY UPDATED RECORDS
 SELECT * FROM student;
 
+16.delete:
+ delete from employee1 where id=3;
 
--- ==========================================
--- END OF MYSQL BASIC NOTES
--- ==========================================
+17.create table using autoincrement primary key:
+ create table employee1(emp_id int auto_increment primary key,emp_name varchar(25),emp_dep varchar(25),salary decimal);
