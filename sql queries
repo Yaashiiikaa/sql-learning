@@ -1,0 +1,33 @@
+--flight details sql which contains 3 tables city,flight,passenger
+--it made me to understand about forein key and primary key including auto_increment.
+create database travel_db;
+use travel_db;
+create table city(city_id int auto_increment primary key,
+city_name varchar(30) not null,
+country_name varchar(30));
+create table flight(
+flight_id int auto_increment primary key,
+from_city int,
+to_city int,flight_date date,
+foreign key(from_city) references city(city_id),foreign key(to_city) references city(city_id));
+insert into city(city_name,country_name) 
+values("Delhi","India"),("Dubai","UAE"),("Paris","France"),("NewYork","USA");
+select * from city;
+-- delhi to dubai,dubai to paris,paris to newyork,newyork to delhi 
+insert into flight(from_city,to_city,flight_date)
+values(1,2,"2026-11-08"),(2,3,"2026-11-15"),(3,4,"2026-12-5"),(4,1,"2026-12-27");
+select * from flight;
+create table passenger(passenger_id int auto_increment primary key,
+passenger_name varchar(30),
+flight_id int ,
+foreign key(flight_id) references flight(flight_id));
+insert into passenger(passenger_name,flight_id)
+values("Yashika",3),("Sherin",2),("Renu",4);
+select*from passenger;
+select * from city;
+select * from flight;
+select passenger_name from passenger where flight_id=1;
+insert into passenger(passenger_name,flight_id)values("Ruffia",1);
+insert into passenger(passenger_name,flight_id)values("Yash",1);
+
+
