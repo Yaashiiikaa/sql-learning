@@ -1,0 +1,64 @@
+CREATE DATABASE pro;
+USE pro;
+
+-- Create Customers table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50),
+    Country VARCHAR(50)
+);
+
+-- Create Orders table
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    Amount DECIMAL(10,2)
+);
+
+-- Insert records into Customers
+INSERT INTO Customers (CustomerID, CustomerName, Country) VALUES
+(1, 'Alice', 'USA'),
+(2, 'Bob', 'UK'),
+(3, 'Charlie', 'Canada');
+
+-- Insert records into Orders
+INSERT INTO Orders (OrderID, CustomerID, Amount) VALUES
+(1001, 1, 50.00),
+(1002, 1, 35.00),
+(1003, 2, 120.00);
+
+-- Display tables
+SELECT * FROM Customers;
+SELECT * FROM Orders;
+
+-- 1. INNER JOIN
+SELECT c.CustomerName, c.Country, o.OrderID, o.Amount
+FROM Customers c
+INNER JOIN Orders o
+ON c.CustomerID = o.CustomerID;
+
+-- 2. LEFT JOIN
+SELECT c.CustomerName, c.Country, o.OrderID, o.Amount
+FROM Customers c
+LEFT JOIN Orders o
+ON c.CustomerID = o.CustomerID;
+
+-- 3. RIGHT JOIN
+SELECT c.CustomerName, c.Country, o.OrderID, o.Amount
+FROM Customers c
+RIGHT JOIN Orders o
+ON c.CustomerID = o.CustomerID;
+
+-- 4. FULL OUTER JOIN (Using UNION)
+SELECT c.CustomerName, c.Country, o.OrderID, o.Amount
+FROM Customers c
+LEFT JOIN Orders o
+ON c.CustomerID = o.CustomerID
+
+UNION
+
+SELECT c.CustomerName, c.Country, o.OrderID, o.Amount
+FROM Customers c
+RIGHT JOIN Orders o
+ON c.CustomerID = o.CustomerID;
+
